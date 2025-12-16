@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Performative Furry Purity Test</title>
+    <style>
+        /* CSS Reset & Basic Setup */
+        * { box-sizing: border-box; }
+        
+        body {
+            background-color: #AA0000; /* Classic Deep Red */
+            color: #222;
+            font-family: "Times New Roman", Times, serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        #container {
+            background-color: #ffffff;
+            width: 800px;
+            max-width: 95%;
+            margin: 40px auto;
+            padding: 50px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.6);
+            border-radius: 2px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            font-weight: normal;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        p.instruction {
+            margin-bottom: 35px; 
+            font-size: 1.15em;
+            line-height: 1.5;
+        }
+
+        /* The List Layout */
+        #list {
+            text-align: left;
+            counter-reset: question-counter;
+        }
+
+        .item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            line-height: 1.4em;
+            padding: 2px 0;
+            transition: background-color 0.2s;
+        }
+        
+        .item:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Checkbox Styling */
+        input[type="checkbox"] {
+            margin-right: 12px;
+            transform: scale(1.3);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* Numbering */
+        .item span::before {
+            counter-increment: question-counter;
+            content: counter(question-counter) ". ";
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* Buttons */
+        .btn-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            background-color: #f0f0f0;
+            border: 1px solid #999;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            font-family: "Times New Roman", Times, serif;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        /* Score Display */
+        #score-display {
+            display: none;
+            margin-top: 50px;
+            border-top: 2px solid #eee;
+            padding-top: 30px;
+        }
+
+        #score {
+            font-size: 7em;
+            color: #AA0000;
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+        }
+
+        #score-text {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2em; }
+            #container { padding: 20px; margin: 20px auto; }
+            .item { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h1>The Performative Furry Purity Test</h1>
+    <h2><em>Caution: This is not a bucket list.</em></h2>
+    
+    <p class="instruction">
+        Click on every item you have done.<br> 
+        A "performative furry" is someone who does certain things to appear more "furry" or climb the social ladder.
+    </p>
+
+    <div id="list">
+        <label class="item"><input type="checkbox"><span>Watched Zootopia</span></label>
+        <label class="item"><input type="checkbox"><span>Watched Beastars</span></label>
+        <label class="item"><input type="checkbox"><span>Says "uwu" unironically</span></label>
+        <label class="item"><input type="checkbox"><span>Posts boykisser memes</span></label>
+        <label class="item"><input type="checkbox"><span>Has a "sparkledog" fursona</span></label>
+        <label class="item"><input type="checkbox"><span>Has a Pokesona (Pokémon sona)</span></label>
+        <label class="item"><input type="checkbox"><span>Has a non-canine species</span></label>
+        <label class="item"><input type="checkbox"><span>Came from MLP fandom and refuses to admit it publicly</span></label>
+        <label class="item"><input type="checkbox"><span>Owns a significant plushie collection</span></label>
+        <label class="item"><input type="checkbox"><span>Interacts with furry content on TikTok</span></label>
+
+        <label class="item"><input type="checkbox"><span>Interacts with furry content on Instagram</span></label>
+        <label class="item"><input type="checkbox"><span>Interacts with furry content on Twitter</span></label>
+        <label class="item"><input type="checkbox"><span>Maintains a dedicated furry social media account</span></label>
+        <label class="item"><input type="checkbox"><span>Has a private furry alt that is somehow more active than their main</span></label>
+        <label class="item"><input type="checkbox"><span>Has a non-furry-account PFP that is adjacent to but not exactly their fursona</span></label>
+        <label class="item"><input type="checkbox"><span>Switches between 3 different fursonas for their profile pic depending on mood</span></label>
+        <label class="item"><input type="checkbox"><span>Has joined a furry Discord server for the emojis alone</span></label>
+        <label class="item"><input type="checkbox"><span>Has posted that they are moving from Twitter to Bluesky</span></label>
+        <label class="item"><input type="checkbox"><span>...Then returned back to Twitter</span></label>
+        <label class="item"><input type="checkbox"><span>Has subtweeted about furry content</span></label>
+        <label class="item"><input type="checkbox"><span>Says “the fandom is dying” once every 2 months</span></label>
+        <label class="item"><input type="checkbox"><span>Argues about species discourse (wolves vs. foxes vs. dragons)</span></label>
+        <label class="item"><input type="checkbox"><span>Is in a Discord channel for furry art</span></label>
+        <label class="item"><input type="checkbox"><span>Owns/mods a furry Discord server</span></label>
+        <label class="item"><input type="checkbox"><span>Interacts with furry content on Furry Amino</span></label>
+
+        <label class="item"><input type="checkbox"><span>Adopted a character</span></label>
+        <label class="item"><input type="checkbox"><span>Has adopted a sona but never used it</span></label>
+        <label class="item"><input type="checkbox"><span>Has more than 1 fursona</span></label>
+        <label class="item"><input type="checkbox"><span>Has a feral and anthro version of the same sona</span></label>
+        <label class="item"><input type="checkbox"><span>Has a “winter form,” “summer form,” and “feral form”</span></label>
+        <label class="item"><input type="checkbox"><span>Refers to their sona as “me but cooler”</span></label>
+        <label class="item"><input type="checkbox"><span>Has a sona that is “technically a hybrid”</span></label>
+        <label class="item"><input type="checkbox"><span>Has a sona that is objectively OP (wings, horns, magic, neon, etc.)</span></label>
+        <label class="item"><input type="checkbox"><span>Has a sona based on an inanimate object</span></label>
+        <label class="item"><input type="checkbox"><span>Sona has lore so complicated they’ve considered writing a Google Doc for it</span></label>
+        <label class="item"><input type="checkbox"><span>Has actually written a Google Doc for their sona’s lore</span></label>
+        <label class="item"><input type="checkbox"><span>Has had a song become “their sona’s theme”</span></label>
+        <label class="item"><input type="checkbox"><span>Has analyzed species traits like “foxes are submissive” unironically</span></label>
+        <label class="item"><input type="checkbox"><span>Calls their friends by their sona's names</span></label>
+        <label class="item"><input type="checkbox"><span>Is a BOTTOM (tops and switches get out of here)</span></label>
+
+        <label class="item"><input type="checkbox"><span>Has Hyena Agenda Merch</span></label>
+        <label class="item"><input type="checkbox"><span>Has Nomad Complex Merch</span></label>
+        <label class="item"><input type="checkbox"><span>Has Techwear</span></label>
+        <label class="item"><input type="checkbox"><span>Wears furry merch outside of furry spaces</span></label>
+        <label class="item"><input type="checkbox"><span>Has furry decals on their laptop</span></label>
+        <label class="item"><input type="checkbox"><span>Slaps a Bad Dragon sticker on their laptop/car/water bottle</span></label>
+        <label class="item"><input type="checkbox"><span>Owns the Pizza Parma dog bowl from Anthrocon</span></label>
+        <label class="item"><input type="checkbox"><span>Furry decoration in house</span></label>
+        <label class="item"><input type="checkbox"><span>Displays fursona badge as decoration</span></label>
+        <label class="item"><input type="checkbox"><span>Displays fursuit head as decoration</span></label>
+        <label class="item"><input type="checkbox"><span>Has commissioned SFW art</span></label>
+        <label class="item"><input type="checkbox"><span>Has been in an art queue for 9 months and checks every day</span></label>
+        <label class="item"><input type="checkbox"><span>Is in a Telegram channel for furry art</span></label>
+        <label class="item"><input type="checkbox"><span>Operates their own Telegram channel</span></label>
+        <label class="item"><input type="checkbox"><span>Drinks Soju</span></label>
+
+        <label class="item"><input type="checkbox"><span>Has attended a con</span></label>
+        <label class="item"><input type="checkbox"><span>Has gone to MFF (Midwest FurFest)</span></label>
+        <label class="item"><input type="checkbox"><span>Has gone to AC (Anthrocon)</span></label>
+        <label class="item"><input type="checkbox"><span>Joins a school furry club</span></label>
+        <label class="item"><input type="checkbox"><span>Goes to local furry meetups</span></label>
+        <label class="item"><input type="checkbox"><span>Has DJ'd at a furry room party</span></label>
+        <label class="item"><input type="checkbox"><span>Has a furry badge (badge with fursona)</span></label>
+        <label class="item"><input type="checkbox"><span>Wears a physical furry badge outside of cons</span></label>
+        <label class="item"><input type="checkbox"><span>Has lost their badge at a con</span></label>
+        <label class="item"><input type="checkbox"><span>Has broken the "6-2-1" rule at a con</span></label>
+        <label class="item"><input type="checkbox"><span>Watches every Anthrocon floor video for no reason</span></label>
+        <label class="item"><input type="checkbox"><span>Posts “Who’s going to ____ con???”</span></label>
+        <label class="item"><input type="checkbox"><span>Hated on "boof" (or engaged in the discourse)</span></label>
+        <label class="item"><input type="checkbox"><span>Takes photos at a furry con with an overly-expensive camera</span></label>
+        <label class="item"><input type="checkbox"><span>Takes photos of fursuiters at cons</span></label>
+
+        <label class="item"><input type="checkbox"><span>Only owns a fursuit head</span></label>
+        <label class="item"><input type="checkbox"><span>Owns a secret suit</span></label>
+        <label class="item"><input type="checkbox"><span>Fursuited at a Zootopia screening (1 or 2)</span></label>
+        <label class="item"><input type="checkbox"><span>Has fursuited during a heat advisory</span></label>
+        <label class="item"><input type="checkbox"><span>Banana peels in suit</span></label>
+        <label class="item"><input type="checkbox"><span>Refuses to "break the magic" in fursuit</span></label>
+        <label class="item"><input type="checkbox"><span>Simps over a fursuit maker's suits</span></label>
+        <label class="item"><input type="checkbox"><span>Goes to a fursuit maker's group photoshoot at a con</span></label>
+        <label class="item"><input type="checkbox"><span>Has memorized at least 3 major fursuit makers’ styles</span></label>
+        <label class="item"><input type="checkbox"><span>Can recognize popular fursuiters</span></label>
+        <label class="item"><input type="checkbox"><span>Has taken a "stalker photo" of a suiter at a con/meetup</span></label>
+        <label class="item"><input type="checkbox"><span>Has uploaded a photo onto FurTrack</span></label>
+        <label class="item"><input type="checkbox"><span>Has added tags on FurTrack</span></label>
+        <label class="item"><input type="checkbox"><span>Has posted suit vs suiter meme</span></label>
+        <label class="item"><input type="checkbox"><span>Hating a popular furry and still hanging out with them</span></label>
+
+        <label class="item"><input type="checkbox"><span>Has blue check mark on Twitter</span></label>
+        <label class="item"><input type="checkbox"><span>Has considered moving to a high density furry area (Seattle, Bay Area, Austin)</span></label>
+        <label class="item"><input type="checkbox"><span>Has moved to a high density furry area (Seattle, Bay Area, Austin)</span></label>
+        <label class="item"><input type="checkbox"><span>Owns a harness (Crunchycurl, etc.)</span></label>
+        <label class="item"><input type="checkbox"><span>Having a harness with an Off-White brand</span></label>
+        <label class="item"><input type="checkbox"><span>Has a FurAffinity account</span></label>
+        <label class="item"><input type="checkbox"><span>Posts on FurAffinity</span></label>
+        <label class="item"><input type="checkbox"><span>Pretends to like a kink to fit in</span></label>
+
+        <label class="item"><input type="checkbox"><span>Has added tags on E621</span></label>
+        <label class="item"><input type="checkbox"><span>Furry porn as decoration in house</span></label>
+        <label class="item"><input type="checkbox"><span>Has commissioned NSFW art</span></label>
+        <label class="item"><input type="checkbox"><span>Has commissioned NSFW art with someone else</span></label>
+        <label class="item"><input type="checkbox"><span>Has won an auction for a slot in an NSFW artwork without knowing the others</span></label>
+        <label class="item"><input type="checkbox"><span>Has a Petsuit</span></label>
+        <label class="item"><input type="checkbox"><span>Wears a Puphood on the confloor</span></label>
+    </div>
+
+    <div class="btn-container">
+        <button id="calculate-btn">Calculate Score</button>
+        <button id="clear-btn">Clear</button>
+    </div>
+
+    <div id="score-display">
+        <span id="score">100</span>
+        <span id="score-text">Your Score</span>
+    </div>
+
+    <footer>
+        <p>Based on performativepuritytest.com and ricepuritytest.com</p>
+    </footer>
+</div>
+
+<script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const calculateBtn = document.getElementById('calculate-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    const scoreDisplay = document.getElementById('score-display');
+    const scoreValue = document.getElementById('score');
+
+    calculateBtn.addEventListener('click', () => {
+        let checkedCount = 0;
+        checkboxes.forEach(box => {
+            if (box.checked) {
+                checkedCount++;
+            }
+        });
+
+        // The purity score is 100 minus the number of "sins" committed
+        const finalScore = 100 - checkedCount;
+        
+        scoreValue.textContent = finalScore;
+        scoreDisplay.style.display = 'block';
+        
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+
+    clearBtn.addEventListener('click', () => {
+        checkboxes.forEach(box => {
+            box.checked = false;
+        });
+        scoreDisplay.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
