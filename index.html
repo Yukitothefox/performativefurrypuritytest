@@ -9,7 +9,10 @@
         * { box-sizing: border-box; }
         
         body {
-            background-color: #AA0000; /* Classic Deep Red */
+            /* Targeting the classic textured background look */
+            background-color: #E6E6E6; 
+            background-image: url('performance_furry_test_texture.png'); /* Placeholder for the repeating red/white texture */
+            background-repeat: repeat; 
             color: #222;
             font-family: "Times New Roman", Times, serif;
             margin: 0;
@@ -23,31 +26,34 @@
             max-width: 95%;
             margin: 40px auto;
             padding: 50px;
-            box-shadow: 0px 4px 20px rgba(0,0,0,0.6);
-            border-radius: 2px;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.4); /* Slightly lighter shadow */
+            border-radius: 0; /* Removing the border-radius for the classic look */
         }
 
         /* Typography */
         h1 {
-            font-size: 3.2em;
-            margin-bottom: 10px;
+            font-size: 3.5em; /* Slightly larger */
+            margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: bold;
             line-height: 1.1;
+            color: #AA0000; /* Main title color */
         }
 
         h2 {
             font-size: 1.3em;
             font-weight: normal;
             margin-bottom: 40px;
-            font-style: italic;
+            font-style: italic; /* Emphasizing the italic subtitle */
+            color: #555;
         }
 
         p.instruction {
             margin-bottom: 35px; 
             font-size: 1.15em;
             line-height: 1.5;
+            padding: 0 20px;
         }
 
         /* The List Layout */
@@ -60,22 +66,22 @@
             display: flex;
             align-items: baseline;
             margin-bottom: 10px;
-            font-size: 1.1em;
+            font-size: 1.15em; /* Slightly increased size */
             line-height: 1.4em;
             padding: 2px 0;
-            transition: background-color 0.2s;
+            cursor: pointer; /* Makes the entire label clickable/hoverable */
         }
         
         .item:hover {
-            background-color: #f9f9f9;
+            background-color: #f7f7f7; /* Very subtle hover effect */
         }
 
         /* Checkbox Styling */
         input[type="checkbox"] {
             margin-right: 12px;
-            transform: scale(1.3);
-            cursor: pointer;
+            transform: scale(1.4); /* Larger checkbox */
             flex-shrink: 0;
+            border: 1px solid #999;
         }
 
         /* Numbering */
@@ -84,46 +90,42 @@
             content: counter(question-counter) ". ";
             font-weight: bold;
             margin-right: 5px;
+            color: #AA0000; /* Numbering color matching the title */
         }
 
         /* Buttons */
         .btn-container {
-            margin-top: 40px;
+            margin-top: 50px;
             display: flex;
             justify-content: center;
             gap: 15px;
         }
 
         button {
-            background-color: #f0f0f0;
-            border: 1px solid #999;
-            padding: 12px 25px;
-            font-size: 1.2em;
+            background-color: #ffffff;
+            border: 2px solid #555; /* Thicker border on buttons */
+            padding: 10px 30px;
+            font-size: 1.3em;
             font-family: "Times New Roman", Times, serif;
             cursor: pointer;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-            transition: all 0.2s;
+            transition: all 0.1s;
         }
 
         button:hover {
-            background-color: #e0e0e0;
-            transform: translateY(-1px);
-        }
-
-        button:active {
-            transform: translateY(1px);
+            background-color: #f0f0f0;
         }
 
         /* Score Display */
         #score-display {
             display: none;
             margin-top: 50px;
-            border-top: 2px solid #eee;
             padding-top: 30px;
+            border-top: 3px solid #E6E6E6; /* Visible separator */
         }
 
         #score {
-            font-size: 7em;
+            font-size: 8em; /* Massive score display */
             color: #AA0000;
             font-weight: bold;
             display: block;
@@ -131,8 +133,19 @@
         }
 
         #score-text {
-            font-size: 2em;
+            font-size: 2.2em;
             font-weight: bold;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        #quote-display {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #AA0000;
+            max-width: 80%;
+            margin: 0 auto;
+            line-height: 1.4;
         }
 
         /* Footer */
@@ -188,7 +201,7 @@
         <label class="item"><input type="checkbox"><span>Argues about species discourse (wolves vs. foxes vs. dragons)</span></label>
         <label class="item"><input type="checkbox"><span>Is in a Discord channel for furry art</span></label>
         <label class="item"><input type="checkbox"><span>Owns/mods a furry Discord server</span></label>
-        <label class="item"><input type="checkbox"><span>Interacts with furry content on Furry Amino</span></label>
+        <label class="item"><input type="checkbox"><span>Interacted with furry content on Furry Amino</span></label>
 
         <label class="item"><input type="checkbox"><span>Adopted a character</span></label>
         <label class="item"><input type="checkbox"><span>Has adopted a sona but never used it</span></label>
@@ -225,6 +238,7 @@
         <label class="item"><input type="checkbox"><span>Has attended a con</span></label>
         <label class="item"><input type="checkbox"><span>Has gone to MFF (Midwest FurFest)</span></label>
         <label class="item"><input type="checkbox"><span>Has gone to AC (Anthrocon)</span></label>
+        <label class="item"><input type="checkbox"><span>Has taken thirst trap and or shirtless photo at the Megaplex pool</span></label>
         <label class="item"><input type="checkbox"><span>Joins a school furry club</span></label>
         <label class="item"><input type="checkbox"><span>Goes to local furry meetups</span></label>
         <label class="item"><input type="checkbox"><span>Has DJ'd at a furry room party</span></label>
@@ -234,11 +248,12 @@
         <label class="item"><input type="checkbox"><span>Has broken the "6-2-1" rule at a con</span></label>
         <label class="item"><input type="checkbox"><span>Watches every Anthrocon floor video for no reason</span></label>
         <label class="item"><input type="checkbox"><span>Posts “Who’s going to ____ con???”</span></label>
-        <label class="item"><input type="checkbox"><span>Hated on "boof" (or engaged in the discourse)</span></label>
+        <label class="item"><input type="checkbox"><span>Hated on Boof (or engaged in the discourse)</span></label>
         <label class="item"><input type="checkbox"><span>Takes photos at a furry con with an overly-expensive camera</span></label>
-        <label class="item"><input type="checkbox"><span>Takes photos of fursuiters at cons</span></label>
 
         <label class="item"><input type="checkbox"><span>Only owns a fursuit head</span></label>
+        <label class="item"><input type="checkbox"><span>Holds suit head like a hall pass in the con space</span></label>
+        <label class="item"><input type="checkbox"><span>Contributed to a fursuit head pile</span></label>
         <label class="item"><input type="checkbox"><span>Owns a secret suit</span></label>
         <label class="item"><input type="checkbox"><span>Fursuited at a Zootopia screening (1 or 2)</span></label>
         <label class="item"><input type="checkbox"><span>Has fursuited during a heat advisory</span></label>
@@ -246,30 +261,32 @@
         <label class="item"><input type="checkbox"><span>Refuses to "break the magic" in fursuit</span></label>
         <label class="item"><input type="checkbox"><span>Simps over a fursuit maker's suits</span></label>
         <label class="item"><input type="checkbox"><span>Goes to a fursuit maker's group photoshoot at a con</span></label>
+        <label class="item"><input type="checkbox"><span>Goes to a Kigurumi Kagetsu's group photoshoot at a con</span></label>
         <label class="item"><input type="checkbox"><span>Has memorized at least 3 major fursuit makers’ styles</span></label>
         <label class="item"><input type="checkbox"><span>Can recognize popular fursuiters</span></label>
         <label class="item"><input type="checkbox"><span>Has taken a "stalker photo" of a suiter at a con/meetup</span></label>
+        <label class="item"><input type="checkbox"><span>Takes photos of fursuiters at cons</span></label>
+        
         <label class="item"><input type="checkbox"><span>Has uploaded a photo onto FurTrack</span></label>
         <label class="item"><input type="checkbox"><span>Has added tags on FurTrack</span></label>
         <label class="item"><input type="checkbox"><span>Has posted suit vs suiter meme</span></label>
         <label class="item"><input type="checkbox"><span>Hating a popular furry and still hanging out with them</span></label>
-
         <label class="item"><input type="checkbox"><span>Has blue check mark on Twitter</span></label>
+
         <label class="item"><input type="checkbox"><span>Has considered moving to a high density furry area (Seattle, Bay Area, Austin)</span></label>
         <label class="item"><input type="checkbox"><span>Has moved to a high density furry area (Seattle, Bay Area, Austin)</span></label>
         <label class="item"><input type="checkbox"><span>Owns a harness (Crunchycurl, etc.)</span></label>
         <label class="item"><input type="checkbox"><span>Having a harness with an Off-White brand</span></label>
         <label class="item"><input type="checkbox"><span>Has a FurAffinity account</span></label>
+        
         <label class="item"><input type="checkbox"><span>Posts on FurAffinity</span></label>
         <label class="item"><input type="checkbox"><span>Pretends to like a kink to fit in</span></label>
-
-        <label class="item"><input type="checkbox"><span>Has added tags on E621</span></label>
+        <label class="item"><input type="checkbox"><span>Has a tag on E621</span></label>
         <label class="item"><input type="checkbox"><span>Furry porn as decoration in house</span></label>
         <label class="item"><input type="checkbox"><span>Has commissioned NSFW art</span></label>
         <label class="item"><input type="checkbox"><span>Has commissioned NSFW art with someone else</span></label>
-        <label class="item"><input type="checkbox"><span>Has won an auction for a slot in an NSFW artwork without knowing the others</span></label>
+        <label class="item"><input type="checkbox"><span>Has won an auction for a slot in an NSFW YCH artwork without knowing the others</span></label>
         <label class="item"><input type="checkbox"><span>Has a Petsuit</span></label>
-        <label class="item"><input type="checkbox"><span>Wears a Puphood on the confloor</span></label>
     </div>
 
     <div class="btn-container">
@@ -278,13 +295,10 @@
     </div>
 
     <div id="score-display">
-        <span id="score">100</span>
         <span id="score-text">Your Score</span>
+        <span id="score">100</span>
+        <p id="quote-display"></p>
     </div>
-
-    <footer>
-        <p>Based on performativepuritytest.com and ricepuritytest.com</p>
-    </footer>
 </div>
 
 <script>
@@ -293,6 +307,51 @@
     const clearBtn = document.getElementById('clear-btn');
     const scoreDisplay = document.getElementById('score-display');
     const scoreValue = document.getElementById('score');
+    const quoteDisplay = document.getElementById('quote-display');
+    
+    // Total items in the list (97 based on current count)
+    const totalItems = checkboxes.length; 
+    const maxScore = 100;
+
+    const quotes = {
+        // Score: 90–100 (Checked: 0-10)
+        pure: [
+            "Did you just open your FurAffinity account yesterday? We're not sure you even know what a 'pokesona' is. Go watch <strong>Zootopia</strong> again.",
+            "A true innocent! You are a soft, untouched <strong>soda cat</strong> waiting for your first convention invite. Be wary of the <strong>pizza dog bowl</strong> people.",
+            "You checked 'Watched Beastars' and that's it. You're trying, bless your heart, but your biggest sin is probably just knowing what E621 is... but only by reputation."
+        ],
+        // Score: 70–89 (Checked: 11-30)
+        babyFur: [
+            "You're active online, you know the lore, and your DMs are open for SFW art. You have successfully achieved <strong>'Local Furry Meetup'</strong> status. Now go argue about foxes vs. wolves.",
+            "The Discord emoji farm is strong with this one. You're doing all the free things: the memes, the discourse, the <strong>sparkledog</strong> defense. Save up for a badge, kid.",
+            "You’ve commissioned one SFW piece and you think that makes you a connoisseur. You’re about three YouTube videos away from considering moving to Seattle. Take a breath."
+        ],
+        // Score: 40–69 (Checked: 31-60)
+        cloutChaser: [
+            "Congratulations, you are a walking <strong>Hyena Agenda</strong> ad! You own a <strong>fursuit head</strong> but only wear it for mirror selfies. You are performing at 60% capacity.",
+            "You've been to a major con, you know which fursuit maker to simp for, and you've subtweeted about drama. Your performative score is optimal. <strong>Welcome to the drama stage.</strong>",
+            "An Off-White harness AND a FurTrack photo? You're not trying to be a furry; you're trying to be a <strong>brand</strong>. Now tell us again how your 'feral form' has three tails and is secretly magic."
+        ],
+        // Score: 20–39 (Checked: 61-80)
+        popufurAdjacent: [
+            "You’ve added tags to E621 and you know who is who by <strong>silhouette</strong>. You are officially 'con floor royalty' and we suspect you’ve had at least one conversation about <strong>'boof.'</strong>",
+            "A <strong>YCH auction winner</strong>! You're not just buying art, you're buying <strong>social experience</strong>. You pretend to like certain kinks, you own a Petsuit, and you consider your <strong>NSFW art</strong> 'home decor.' You have ascended."
+        ],
+        // Score: 0–19 (Checked: 81-97)
+        finalBoss: [
+            "You moved to Austin for the furries, you're a DJ, you know all the makers, and you hate a popufur but still hang out with them. You're not a furry; you're a <strong>Fandom Lore Master</strong> and your life is performance art.",
+            "Congratulations! You are the <strong>Performative Furry Final Boss</strong>. There is nothing left to check. Please submit your <strong>Google Doc lore</strong> and the name of your therapist. Go touch grass, or at least a banana peel outside your suit."
+        ]
+    };
+
+    function getQuote(score) {
+        if (score >= 90) return quotes.pure[Math.floor(Math.random() * quotes.pure.length)];
+        if (score >= 70) return quotes.babyFur[Math.floor(Math.random() * quotes.babyFur.length)];
+        if (score >= 40) return quotes.cloutChaser[Math.floor(Math.random() * quotes.cloutChaser.length)];
+        if (score >= 20) return quotes.popufurAdjacent[Math.floor(Math.random() * quotes.popufurAdjacent.length)];
+        return quotes.finalBoss[Math.floor(Math.random() * quotes.finalBoss.length)];
+    }
+
 
     calculateBtn.addEventListener('click', () => {
         let checkedCount = 0;
@@ -302,10 +361,11 @@
             }
         });
 
-        // The purity score is 100 minus the number of "sins" committed
-        const finalScore = 100 - checkedCount;
+        // The purity score is calculated out of 100 based on the percentage of items checked.
+        const finalScore = Math.round(maxScore - (checkedCount / totalItems) * maxScore);
         
         scoreValue.textContent = finalScore;
+        quoteDisplay.innerHTML = getQuote(finalScore);
         scoreDisplay.style.display = 'block';
         
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
